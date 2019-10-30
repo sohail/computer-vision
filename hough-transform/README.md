@@ -18,11 +18,16 @@ Sice we've the coordinates of both of these points we can use **Two Point formul
 There are two such parameters with which a line can be completely defined, these parameters are slope(m) and intercept(c) of a line. A whole edge with many edge points in **xy** space is just a single point in **mc** space, **Hough Transform** assign weights to all of those edge points which are on the line/edge identified by parameters **m**, **c** and leave all other pixels out of this process of votes/weights.
 
 **assets/mandymoore.tiff**
+
 ![assets/madymoore.tiff](assets/mandymoore.png)
 
+
 **assets/accumulator.png**
+
 ![assets/accumulator.png](assets/accumulator.png)
 
+
 **assets/houghed.tiff**
+
 ![assets/houghed.tiff](assets/houghed.png)
 
