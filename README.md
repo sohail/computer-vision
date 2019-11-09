@@ -3,7 +3,7 @@ For a computer an image is a 2D matrix of numbers(for color image, each R G and 
 
 An image is considered a mathematical function of x, y and outcome of this consideration is, that under the pretext of **Image Processing** different mathematical operations(such as **derivation**) can be performed on an image to extract spatial features/structures and classify or assign a label to an image.
 
-In **Image Processing**, taking a derivative of an image is called building **Convolutional Neural Network** of an image. The **CNN** is the process of dividing whole image in patches/sections and replacing a whole patch/section with a single intensity/brightness/strength value in the hidden/underlying layer of set of pixels called **neurons** and then connecting each **neuron** to the subsequnt hidden/underlying layers(aking the second and third derivative or differentiate the derivative even further more).
+In **Image Processing**, taking a derivative of an image is called building **Convolutional Neural Network** of an image. The **CNN** is the process of dividing whole image in patches/sections and replacing a whole patch/section with a single intensity/brightness/strength value in the hidden/underlying layer of set of pixels called **neurons** and then connecting each **neuron** to the subsequnt hidden/underlying layers(taking the second and third derivative or differentiate the derivative even further more).
 
 An image can be divided in sections or pathces under the assumption that pixels which are close together are part of same feature or structure. In order to identify several fetures we need several kernels/filter(kernel/filter is a small matrix of weights).
 
