@@ -18,6 +18,7 @@ The job of an image classifier is to reshape it's input which is square of pixel
 - The same filter is applied for every neuron across a layer. And the values in that filter are learned during training. 
  
 **Training**
+
 We feed the classifier a labeled image —something where we know what's in it— it outputs predictions, we math to figure out how wrong that prediction was and then we math again, nudging each and every single filter in the direction that would have produced a better result the term for that is: gradient descent.
 > **Excerpts end here**.
 
