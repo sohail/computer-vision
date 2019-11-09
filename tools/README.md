@@ -32,3 +32,8 @@ dotnet run <path to JPEG file> [n]
 [n] optional number of passes. Each additional pass will increase the total time this program takes to blur an image
 
 
+### imagesampler.js
+
+Edit index.html file
+
+
