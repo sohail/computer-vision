@@ -1,6 +1,11 @@
 # computer-vision
 
-This folder contains tools to help try reduce the size of images, remove noise from them or anything and every thing which can speedup the process of image processing.   
+This folder contains tools to help try reduce the size of images, remove noise from them or anything and every thing which can speedup the process of image processing.  
+
+To build any of the tools, change into the respective folder and do...
+````bash
+dotnet build
+```` 
 
 ### color2grey
 Converts a JPEG image to grayscale 8 bit TIFF image.
