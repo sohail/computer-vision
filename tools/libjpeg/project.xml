@@ -1,0 +1,94 @@
+<Project DefaultTargets="Build" ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <ItemGroup>
+        <ProjectConfiguration Include="Debug|Win32">
+            <Configuration>Debug</Configuration>
+            <Platform>Win32</Platform>
+        </ProjectConfiguration>
+        <ProjectConfiguration Include="Debug|x64">
+            <Configuration>Debug</Configuration>
+            <Platform>x64</Platform>
+        </ProjectConfiguration>      
+    </ItemGroup>
+    <Import Project="$(VCTargetsPath)\Microsoft.Cpp.default.props" />
+    <PropertyGroup>
+        <ConfigurationType>Application</ConfigurationType>
+        <!-- <OutputType>Exe</OutputType> -->       
+        <!-- <BaseOutputPath>Example-Application</BaseOutputPath> -->
+        <!-- <OutputPath>Example-Application</OutputPath> -->
+        <!-- <AssemblyName>main</AssemblyName> -->
+        <!-- %INCLUDE% %LIB% for VS defined environment for include path and library paths, must include them as in our case of IncludePath compile time errors about not finding files will show up -->
+        <IncludePath>%INCLUDE%;libjpeg;</IncludePath>
+        <TargetName>example</TargetName>
+        <PlatformToolset>v141</PlatformToolset>
+    </PropertyGroup>
+    <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+    <ItemDefinitionGroup>
+        <ClCompile>
+            <PreprocessorDefinitions Condition="'$(CSVPreprocessorDefinitions)'=='yes'">CSV_EXAMPLE_APPLICATION;CSV_NOT_ALLOW_EMPTY_TOKENS</PreprocessorDefinitions>
+        </ClCompile>
+    </ItemDefinitionGroup>
+    <ItemGroup> 
+        <ClCompile Include="libjpeg/jaricom.c" />
+        <ClCompile Include="libJpeg/jcarith.c" />
+
+        <ClCompile Include="libJpeg/jccoefct.c" />
+        <ClCompile Include="libJpeg/jcapistd.c" />
+        <ClCompile Include="libJpeg/jcapimin.c" />
+        <ClCompile Include="libJpeg/jccolor.c" />
+        <ClCompile Include="libJpeg/jcdctmgr.c" />
+        <ClCompile Include="libJpeg/jchuff.c" />
+        <ClCompile Include="libJpeg/jcinit.c" />
+        <ClCompile Include="libJpeg/jcmainct.c" />
+        <ClCompile Include="libJpeg/jcmarker.c" />
+        <ClCompile Include="libJpeg/jcmaster.c" />
+        <ClCompile Include="libJpeg/jcomapi.c" />
+        <ClCompile Include="libJpeg/jcparam.c" />
+        <ClCompile Include="libJpeg/jcprepct.c" />
+        <ClCompile Include="libJpeg/jcsample.c" />
+        <ClCompile Include="libJpeg/jctrans.c" />
+        <ClCompile Include="libJpeg/jdapimin.c" />
+        <ClCompile Include="libJpeg/jdapistd.c" />
+        <ClCompile Include="libJpeg/jdarith.c" />
+        <ClCompile Include="libJpeg/jdatadst.c" />
+        <ClCompile Include="libJpeg/jdatasrc.c" />
+        <ClCompile Include="libJpeg/jdcoefct.c" />
+        <ClCompile Include="libJpeg/jdcolor.c" />
+        <ClCompile Include="libJpeg/jddctmgr.c" />
+        <ClCompile Include="libjpeg/jdhuff.c" />
+        <ClCompile Include="libjpeg/jdinput.c" />
+        <ClCompile Include="libjpeg/jdmainct.c" />
+        <ClCompile Include="libjpeg/jdmarker.c" />
+        <ClCompile Include="libjpeg/jdmaster.c" />
+        <ClCompile Include="libjpeg/jdmerge.c" />
+        <ClCompile Include="libjpeg/jdpostct.c" />
+        <ClCompile Include="libjpeg/jdsample.c" />
+        <ClCompile Include="libjpeg/jdtrans.c" />
+        <ClCompile Include="libjpeg/jerror.c" />
+        <ClCompile Include="libjpeg/jfdctflt.c" />
+        <ClCompile Include="libjpeg/jfdctfst.c" />
+        <ClCompile Include="libjpeg/jfdctint.c" />
+        <ClCompile Include="libjpeg/jidctflt.c" />
+        <ClCompile Include="libjpeg/jidctfst.c" />
+        <ClCompile Include="libjpeg/jidctint.c" />        
+        <ClCompile Include="libjpeg/jmemansi.c" />
+        <ClCompile Include="libjpeg/jmemmgr.c" />
+        <!-- The files jmemnobs.c and jmemansi.c cannot coexist -->
+        <!-- <ClCompile Include="libjpeg/jmemnobs.c" />  -->
+        <ClCompile Include="libjpeg/jquant1.c" />
+        <ClCompile Include="libjpeg/jquant2.c" />
+        <ClCompile Include="libjpeg/jutils.c" />
+
+        <ClCompile Include="example/main.c" />
+        <!-- <ClCompile Include="example/example.c" /> -->
+        <!-- <ClCompile Include="" /> -->       
+        <!-- <ClCompile Include="" /> -->   
+    </ItemGroup>
+    <ItemGroup>        
+        <!-- <ClInclude Include="Example-Application/main.hh" /> -->
+    </ItemGroup>
+    <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Targets" />
+    <Target Name="move" AfterTargets="AfterBuild" Condition="'$(ConfigurationType)'=='Application'">
+        <Move SourceFiles="$(Configuration)\$(TargetName).exe" DestinationFiles="$(TargetName).exe" />
+        <Message Text="Moved executable file." Importance="high" />
+    </Target>
+</Project>
