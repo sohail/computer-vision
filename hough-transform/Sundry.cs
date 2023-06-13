@@ -363,12 +363,12 @@ namespace cannyEdgeDetection
         // sqrt(h*h + w*w)
         public static int get_diagnal_length(int height, int width)
         {
-            if (height == width)
+            if (height == width) // a square d = s * √2
             {
                 return (int)Math.Round(height*Math.Sqrt(2));
             }
 
-            return (int)Math.Round(Math.Sqrt(height*height  + width*width));                        
+            return (int)Math.Round(Math.Sqrt(height*height  + width*width)); // Rectangle  d = √(L^2 + W^2)                      
         }
 /* ******************************** */
         public static void thresholding_with_hysterysis(ref double[] sum, ref double[] direction, ref byte[] result, int height, int width, int sizeOfSinglePixelInNumberOfBytes, bool format = constants.TIFF)
