@@ -329,13 +329,23 @@ namespace cannyEdgeDetection
                                         
                     // ((int)(90 + i)).ToString(), from 0(90 + (-90)) to 180(90 + 90)
                     // ((int)(accumulator.GentLength(0) + p)).ToString(), from 0 to accumulator.GentLength(0)*2
-                    for (var i = -90; i < (90 + 1); i++)
+                    for (var i = -90; i < (90 + 1); i++) // Angle theta i, then n is x and m is y
                     {
                        var p =  Math.Round(Math.Cos((Math.PI/180)*i)*n + Math.Sin((Math.PI/180)*i)*m);
 
-                       var angle = (int)(90 + i);
-                       var distance = (int)((accumulator.GetLength(0)/2) + p);
+                       var angle = (int)(90 + i); // Index has to be positive, it is the column index
+                       /*
+                            sundry.get_diagnal_length(bitmapSource.PixelHeight, bitmapSource.PixelWidth)*2 is the size of accumulator.GetLength(0)
+                            p could be any where -1*accumulator.GetLength(0) to accumulator.GetLength(0). distance is a row index it has to be positive 
+                            that is you first make it half for -1*accumulator.GetLength(0) p value which would be 0. It is same as above statement where
+                            we go the positive index value for column but there 90 was fixed but here the dimensions of the accumulator array changing 
+                        */
+                       var distance = (int)((accumulator.GetLength(0)/2) + p); // 
 
+                       /* 
+                            Both of these two statement blocks should not get executed, if they do then next statement will cause some sort of index out 
+                            of memory block type runtime error/exeception
+                         */     
                        if (angle > (accumulator.GetLength(1)))
                        {
                            Console.WriteLine("angle = "+angle.ToString());
@@ -365,10 +375,10 @@ namespace cannyEdgeDetection
         {
             if (height == width) // a square d = s * √2
             {
-                return (int)Math.Round(height*Math.Sqrt(2));
+                return (int)Math.Round(height*Math.Sqrt(2)); // 
             }
 
-            return (int)Math.Round(Math.Sqrt(height*height  + width*width)); // Rectangle  d = √(L^2 + W^2)                      
+            return (int)Math.Round(Math.Sqrt(height*height  + width*width)); // Rectangle  d = √(H^2 + W^2)                      
         }
 /* ******************************** */
         public static void thresholding_with_hysterysis(ref double[] sum, ref double[] direction, ref byte[] result, int height, int width, int sizeOfSinglePixelInNumberOfBytes, bool format = constants.TIFF)

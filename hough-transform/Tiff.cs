@@ -40,6 +40,11 @@ namespace cannyEdgeDetection
             byte[] source = new byte[bitmapSource.PixelHeight * bitmapSource.PixelWidth];
             byte[] destination = new byte[bitmapSource.PixelHeight * bitmapSource.PixelWidth];
 
+            /* 
+                Multiplying the diagonal length by 2 suggests that the array accommodates both positive and negative values of p  OR 
+                The diagonal length is multiplied by 2 to cover both positive and negative distances from the origin
+             */
+            /* Multiplying 90 by 2 suggests that the range of angles is from -90 degrees to +90 degrees. Adding 1 accounts for the zero angle (0 degrees) */
             byte[,] accumulator = new byte[sundry.get_diagnal_length(bitmapSource.PixelHeight, bitmapSource.PixelWidth)*2, 90*2 + 1];
 
             /*for (var m = 0; m < accumulator.GetLength(0); m++)
